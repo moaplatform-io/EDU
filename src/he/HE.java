@@ -11,12 +11,8 @@ public class HE {
 		int n = 0;
 
 		while(al.size()==7) {
-			
 			n=makeLOto();
-			
-			if(isDuplipcat(al, n)) {
-				
-			}else {
+			if(!isDuplipcat(al, n)) {
 				al.add(n);
 			}
 		}
