@@ -1,0 +1,9 @@
+Q 1 : 채팅방 리스트 ArrayList vs Vector
+		
+		ㄴR : ArrayList 사용
+			
+			 			
+Q 2 : DB 에서 숫자 30개를 뿌림  ArrayList vs Vector
+		
+		ㄴR :  Vector 사용
+			 
