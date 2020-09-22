@@ -1,18 +1,22 @@
 package sg;
 import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class LottoTest {
 
-	public static void main(String[] args) {
+	public static Set<Integer> makeLoto(String[] args) {
 		
-		HashSet<Integer> cars = new HashSet<Integer>();
+		TreeSet<Integer> cars = new TreeSet<Integer>();
 		Random random = new Random();
 		while(cars.size() < 7) {
 			int num = random.nextInt(45)+1;
 			cars.add(num);
 		}
 		System.out.println("로또 당첨번호 : " +cars);
+
+		return cars;
 	}
 
 }
