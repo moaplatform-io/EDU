@@ -25,7 +25,7 @@ public class SolveTheProblem {
 		System.out.println("Q5) 국어성적 1위의 출석번호 : " + question5());
 		System.out.println("Q6) 전체 성적 3퍼센트이하 : " + question6());
 		System.out.println("Q7) 국어 성적순 정렬 실행 ............ \t" + question7or8("kor"));
-		System.out.println("Q7) 수학 성적순 정렬 실행 ............ \t" + question7or8("math"));
+		System.out.println("Q8) 수학 성적순 정렬 실행 ............ \t" + question7or8("math"));
 	}
 	
 	public static ArrayList<String> question1() throws Exception {
