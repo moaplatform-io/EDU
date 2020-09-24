@@ -9,6 +9,9 @@ import sm.q.Outer;
 
 public class FileOut implements Outer{
 	
+	public  FileOut () {
+		
+	}
 	public FileOut(String name) {
 		this.name=name;
 	}
@@ -24,6 +27,10 @@ public class FileOut implements Outer{
 		}
 		pw.flush();
 		pw.close();
+	}
+	@Override
+	public void setFileName(String filename) throws Exception {
+		this.name=filename;
 	}
 
 }

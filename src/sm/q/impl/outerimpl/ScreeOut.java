@@ -13,4 +13,8 @@ public class ScreeOut implements Outer {
 		
 	}
 
+	@Override
+	public void setFileName(String filename) throws Exception {
+	}
+
 }

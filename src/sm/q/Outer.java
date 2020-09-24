@@ -8,4 +8,5 @@ public interface Outer {
 		public static final int Screen=2;
 	}
 	void print(List obj)throws Exception;
+	void setFileName(String filename)throws Exception;
 }

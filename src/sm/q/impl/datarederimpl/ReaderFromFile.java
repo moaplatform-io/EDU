@@ -12,11 +12,11 @@ import sm.q.Parse;
 
 public class ReaderFromFile implements DateReader{
 	public String fileName;
-	
+	public ReaderFromFile() {
+	}
 	public ReaderFromFile(String fileName) {
 		this.fileName=fileName;
 	}
-	
 	@Override
 	public List getStunt(Parse parse) throws Exception {
 		List<Student> msg=new ArrayList<Student>();
@@ -30,5 +30,11 @@ public class ReaderFromFile implements DateReader{
 			msg.add(stu);
 		}
 		return msg;
+	}
+	@Override
+	public void setFilename(String name) {
+		this.fileName=name;
+
+		
 	}
 }
