@@ -49,8 +49,11 @@ public class Studend {
 	
 	public String getLine() {
 		
+		// TODO age가 빠져있어서 추가
 		StringBuilder sb=new StringBuilder();
 			sb.append(name)
+			.append(",")
+			.append(age)
 			.append(",")
 			.append(출석번호)
 			.append(",")
