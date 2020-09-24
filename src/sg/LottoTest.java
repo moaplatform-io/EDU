@@ -15,8 +15,12 @@ public class LottoTest {
 			cars.add(num);
 		}
 		System.out.println("로또 당첨번호 : " +cars);
+		cars.equals(o)
 
+		
 		return cars;
 	}
+	
+	
 
 }
