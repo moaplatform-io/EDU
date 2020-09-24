@@ -62,6 +62,12 @@ public class Student {
 			
 		return sb.toString();
 	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", age=" + age + ", stuNum=" + stuNum + ", korScore=" + korScore
+				+ ", mathScore=" + mathScore + "]"+(this.korScore+this.mathScore);
+	}
 	
 	
 }
