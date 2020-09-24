@@ -8,7 +8,9 @@ public class LottoTest {
 
 	public static Set<Integer> makeLoto(String[] args) {
 		
-		TreeSet<Integer> cars = new TreeSet<Integer>();
+//		TreeSet<Integer> cars = new TreeSet<Integer>();
+		HashSet<Integer> cars = new HashSet<Integer>();
+		
 		Random random = new Random();
 		while(cars.size() < 7) {
 			int num = random.nextInt(45)+1;
