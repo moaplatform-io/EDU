@@ -204,7 +204,6 @@ public class SolveTheProblem {
 		 * for (int i = 0; i < array.size(); i++) { if (!distinctArray.contains(array))
 		 * { distinctArray.add(array.get(i)); } }
 		 */
-		//위의 로직이  속도가 너무 느려서 람다사용 
 		distinctArray = (ArrayList<Integer>) array.parallelStream().distinct().collect(Collectors.toList());
 		return distinctArray;
 	}}
