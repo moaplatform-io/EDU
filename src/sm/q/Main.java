@@ -15,6 +15,7 @@ import sm.q.impl.outerimpl.ScreeOut;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		
 		FileInputStream fis=new FileInputStream("Config");
 		Properties properties=new Properties();
 		properties.load(fis);
