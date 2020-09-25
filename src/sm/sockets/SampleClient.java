@@ -1,5 +1,6 @@
 package sm.sockets;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
@@ -20,9 +21,13 @@ public class SampleClient {
 		
 		InputStream is=socket.getInputStream();
 		OutputStream os=socket.getOutputStream();
+		
+		ReadThread readThread=new ReadThread();
+		readThread.is=is;
+		readThread.start();
+		
 		while(true) {
 			SocetServerSample.writeSocket(os,"client:");
-			SocetServerSample.readSocket(is);
 		}
 	}
 }
