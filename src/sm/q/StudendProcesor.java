@@ -8,16 +8,20 @@ import mission_johyein.Student;
 public class StudendProcesor {
 	private Parse parse;
 	private DateReader dataRear;
-	private Map<Integer,Outer> outer;
 	private List<Student> list;
+	private Outer outer;
 	
+	public void setOuter(Outer outer) {
+		this.outer = outer;
+	}
+
 	/**
 	 * 
 	 * @param bus
 	 * @param outer
 	 * @throws Exception
 	 */
-	public void process(Bus bus,Outer outer) throws Exception {
+	public void process(Bus bus) throws Exception {
 		if(list==null){
 			list=dataRear.getStunt(parse);
 		}
@@ -40,14 +44,5 @@ public class StudendProcesor {
 		this.dataRear = dataRear;
 	}
 
-	public Map<Integer,Outer> getOuter() {
-		return outer;
-	}
-
-	public void setOuter(Map<Integer,Outer> outer) {
-		this.outer = outer;
-	}
-
-	
 
 }
