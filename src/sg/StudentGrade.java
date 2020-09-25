@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -16,40 +17,16 @@ public class StudentGrade {
 	
 	private static List<StudentDto> studentList;
 	
-	public static OutputStream fileout() throws Exception {
+	public static OutputStream inputStream() throws Exception {
 		File file = new File("sg");
 		FileOutputStream inputStream = new FileOutputStream(file);
 		return inputStream;
 	}
 
 	public static void main(String[] args) throws Exception {
-//		OutputStream os = fileout();
-//		PrintWriter pw = new PrintWriter(os);
-//
-//		for (int i = 0; i < 100000; i++) {
-//			String line = new StudentDto(nameMaker(), nameAge(), i + 1, score(), score()).toString();
-//			pw.println(line);
-//		}
-//		pw.flush();
-//		pw.close();
+
 		
 		studentList = addList();
-//		System.out.println(answer());
-		Collections.sort(studentList, new Comparator<StudentDto>() {
-			@Override
-			public int compare(StudentDto o1, StudentDto o2) {
-				// TODO Auto-generated method stub
-				return o2.getKorScore() - o1.getKorScore();
-			}
-			
-		});
-		Collections.sort(studentList, new Comparator<StudentDto>() {
-			@Override
-			public int compare(StudentDto o1, StudentDto o2) {
-				// TODO Auto-generated method stub
-				return o2.getMathScore() - o1.getMathScore();
-			}
-		});
 		System.out.println(answer());
 	}
 
@@ -67,7 +44,6 @@ public class StudentGrade {
 			char c = (char) (new Random().nextInt(24) + 97);
 			sb.append(c);
 		}
-
 		return sb.toString();
 	}
 	
@@ -106,7 +82,7 @@ public class StudentGrade {
 //		return studentName.toString();
 //	}
 	
-	private static String quiz2() throws Exception {
+//	private static String quiz2() throws Exception {
 //		List<Integer> scoreList = reverseSumScoreList();
 //		List<Integer> studentNumber = new ArrayList<Integer>();
 //		scoreList = scoreList.subList(scoreList.indexOf());
@@ -115,8 +91,8 @@ public class StudentGrade {
 //			String name = studentList.get(i).getName();
 //			studentNumber.add(name);
 //		}
-		return null;
-	}
+//		return null;
+//	}
 	
 	private static String quiz3() throws Exception {
 		int korScore = 0, mathScore = 0;
@@ -138,6 +114,7 @@ public class StudentGrade {
 	}
 	
 	private static String quiz5() throws Exception {
+		
 		return null;
 	}
 	
@@ -148,6 +125,42 @@ public class StudentGrade {
 			highRankList.add(studentList.get(i));
 		}
 		return highRankList.toString();
+	}
+	
+	private static String quiz7() throws Exception {
+		String fileName = "sg_kor_sort";
+		List<StudentDto> list = studentList;
+		Collections.sort(list, new Comparator<StudentDto>() {
+			@Override
+			public int compare(StudentDto o1, StudentDto o2) {
+				// TODO Auto-generated method stub
+				return o2.getKorScore() - o1.getKorScore();
+			}
+			
+		});
+		writeFile(fileName, list);
+		return new StringBuilder()
+				.append("파일 이름 : ")
+				.append(fileName)
+				.toString();
+	}
+	
+	private static String quiz8() throws Exception {
+		String fileName = "sg_math_sort";
+		List<StudentDto> list = studentList;
+		
+		Collections.sort(list, new Comparator<StudentDto>() {
+			@Override
+			public int compare(StudentDto o1, StudentDto o2) {
+				// TODO Auto-generated method stub
+				return o2.getMathScore() - o1.getMathScore();
+			}
+		});
+		writeFile(fileName,list);		
+		return new StringBuilder()
+				.append("파일 이름 : ")
+				.append(fileName)
+				.toString();
 	}
 	
 	public static String answer() throws Exception {
@@ -163,22 +176,39 @@ public class StudentGrade {
 		  .append("4. 77등의 출석번호는? : ")
 		  .append("\n")
 		  .append("5. 국어 성적 1위의 출석 번호는? : ")
+		  .append(quiz5())
 		  .append("\n")
 		  .append("6. 전체 성적 3퍼센트 안에 해당 하는 출석 번호 리스트를 뽑으시오 : ")
 		  .append(quiz6())
 		  .append("\n")
 		  .append("7. 국어성적 순으로정렬 하여 file 출력 하시오  : ")
+		  .append(quiz7())
 		  .append("\n")
-		  .append("8. 수학성적 순으로 정렬 하여 file 출력 하시오 : ");
+		  .append("8. 수학성적 순으로 정렬 하여 file 출력 하시오 : ")
+		  .append(quiz8());
 		return sb.toString();
 	}
 	
-	private static int add(int a1,int a2) {
-		return a1+a2;
-	}
+//	private static int add(int a1,int a2) {
+//		return a1+a2;
+//	}
 	
 	private static int parseInt(String s) {
 		return Integer.parseInt(s);	
+	}
+	
+	private static void writeFile(String fileName, List<StudentDto> list) throws Exception {
+		File file = new File("./src/sg/" + fileName);
+		FileOutputStream inputStream = new FileOutputStream(file);
+		OutputStream os = inputStream;
+		PrintWriter pw = new PrintWriter(os);
+
+		for (int i = 0; i < list.size(); i++) {
+			String line = list.get(i).toString();
+			pw.println(line);
+		}
+		pw.flush();
+		pw.close();
 	}
 
 }
