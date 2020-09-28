@@ -1,7 +1,0 @@
-outer=com.outerimpl.CustomOuter
-outer.fileName=random
-
-#outer=sm.q.impl.outerimpl.ScreeOut
-Parse=sm.q.impl.datarederimpl.DefaultParse
-DateReader=sm.q.impl.datarederimpl.ReaderFromFile
-DateReader.fileName=repo
