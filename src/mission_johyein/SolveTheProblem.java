@@ -30,13 +30,9 @@ public class SolveTheProblem {
 	
 	public static ArrayList<String> question1() throws Exception {
 		BufferedReader br = bufferedReader();
-		/**
-		 * 이름 ,합산 성적
-		 */
 		HashMap<String,Integer> map = nameScoreArray(br);
 		ArrayList<Integer> scoreList = scoreList(map);
-		Collections.sort(scoreList,new DescInt());
-		
+		Collections.sort(scoreList,new ASCInt());
 		ArrayList<String> keyArray = keyOfValue(map,scoreList.get(0));
 		return keyArray;
 	}
@@ -62,7 +58,7 @@ public class SolveTheProblem {
 		BufferedReader br = bufferedReader();
 		HashMap<String,Integer> map = stuNumSubjectArray(br,"kor","stuNum");
 		ArrayList<Integer> scoreList = scoreList(map);
-		Collections.sort(scoreList,new DescInt());
+		Collections.sort(scoreList,new ASCInt());
 		int korTop = scoreList.get(0);
 		ArrayList<String> keyArray = keyOfValue(map, korTop);
 		return keyArray;
@@ -73,7 +69,7 @@ public class SolveTheProblem {
 		HashMap<String,Integer> map = stuNumScoreArray(br);
 		ArrayList<Integer> scoreList = scoreList(map);
 		scoreList = distinct(scoreList);
-		Collections.sort(scoreList,new DescInt());
+		Collections.sort(scoreList,new ASCInt());
 		ArrayList<String> tpOfGrade = new ArrayList<String>();
 		for(int i=0; i<=scoreList.size()*0.03; i++) {
 				ArrayList<String> keyArr = keyOfValue(map, scoreList.get(i));
@@ -89,14 +85,11 @@ public class SolveTheProblem {
 		BufferedReader br = bufferedReader();
 		int sub = 0;
 		String fileName= null;
-		
 		if (subject.equals("kor")) {sub=3; fileName="국어성적순정렬";}
 		else {sub=4; fileName="수학성적순정렬";}
-		
 		File file = new File(fileName);
 		FileOutputStream out = new FileOutputStream(file);
 		PrintWriter pw = new PrintWriter(out);
-		
 		Map<String, Integer> map = new HashMap<String,Integer>();
 		
 		String stuInfo = null;
@@ -119,7 +112,6 @@ public class SolveTheProblem {
 		
 		return "실행완료";
 	}
-	
 	
 	//읽어오기
 	public static BufferedReader bufferedReader() throws Exception{
@@ -154,9 +146,9 @@ public class SolveTheProblem {
 		String stuInfo = null;
 		while((stuInfo = br.readLine())!=null) {
 			try {				
-				String[] splitTokens = stuInfo.split(",");
-				int sum =Integer.parseInt(splitTokens[3])+Integer.parseInt(splitTokens[4]);
-				map.put(splitTokens[0], sum);
+			String[] splitTokens = stuInfo.split(",");
+			int sum =Integer.parseInt(splitTokens[3])+Integer.parseInt(splitTokens[4]);
+			map.put(splitTokens[0], sum);
 			} catch (ArrayIndexOutOfBoundsException e) {}
 		}
 		return map;
@@ -187,9 +179,9 @@ public class SolveTheProblem {
 		String stuInfo = null;
 		while((stuInfo = br.readLine())!=null) {
 			try {				
-				String[] splitTokens = stuInfo.split(",");
-				int kor =Integer.parseInt(splitTokens[sub]);
-				map.put(splitTokens[infoNum], kor);
+			String[] splitTokens = stuInfo.split(",");
+			int kor =Integer.parseInt(splitTokens[sub]);
+			map.put(splitTokens[infoNum], kor);
 			} catch (ArrayIndexOutOfBoundsException e) {}
 		}
 		return map;
@@ -215,12 +207,8 @@ public class SolveTheProblem {
 		return distinctArray;
 	}}
 
-/**
- * 디센딩 한다 성적을 내림 차순으로하게 하는 기준
- * @author 모아 혁신개발실
- *
- */
-class DescInt implements Comparator<Integer>{
+//내림차순
+class ASCInt implements Comparator<Integer>{
 	@Override
 	public int compare(Integer o1, Integer o2) {
 		return o2.compareTo(o1);
